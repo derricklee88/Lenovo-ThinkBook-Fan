@@ -75,12 +75,6 @@ boot:
 sudoedit /etc/thinkbook-fan-modes.conf     # set MODE=quiet|auto|performance
 sudo systemctl enable --now thinkbook-fan-mode.service
 ```
-##Installing the GUI Version
-
-```sh
-cd ~/Projects/thinkbook-fan-modes && sudo pacman -U thinkbook-fan-modes-0.4.0-1-any.pkg.tar.zst
-```
-
 
 ## Use
 
@@ -105,7 +99,8 @@ different mode, the previous mode is restored and the command exits 1.
 ## GUI
 
 `thinkbook-fan-gui` is a PyQt6 window, also in the application menu as
-**ThinkBook Fan**. It shows the three modes, both fan RPMs, CPU temperature and
+**ThinkBook Fan** (red fan icon, installed as `thinkbook-fan.svg`). It shows the
+three modes, both fan RPMs, CPU temperature and
 power source, has the "reapply this mode at every boot" checkbox, and plots the last
 two minutes of both fans (rpm) and CPU temperature (°C) on a small custom-painted
 graph, each against its own vertical scale. The graph is drawn with `QPainter`
@@ -117,6 +112,12 @@ the life of the window, so you authenticate once instead of once per click.
 The helper is mode `0700` and the shipped polkit action
 (`org.thinkbookfan.helper`) uses `auth_admin_keep`. Requests are JSON lines over
 pipes, so no display or other environment is handed to the root process.
+
+Closing or minimising the window hides it to the tray instead of quitting —
+the helper keeps running, so an armed turbo latch is not silently cancelled.
+The tray menu has **Show window**, **Full speed turbo**, and **Quit**; quitting
+is the only thing that stops the helper. If no system tray is available,
+closing really closes.
 
 If you dismiss the password dialog the window stays open, says why, and shows
 **Reconnect**. It does not re-prompt on a timer. The same helper runs directly

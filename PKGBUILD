@@ -1,11 +1,11 @@
 # Maintainer: Derrick <derrick@localhost>
 pkgname=thinkbook-fan-modes
-pkgver=0.4.0
+pkgver=0.5.0
 pkgrel=1
 pkgdesc="Thermal mode GUI and fan RPM readout for the Lenovo ThinkBook 15p IMH (20V3) via ACPI WMAA"
 arch=('any')
 license=('MIT')
-depends=('python' 'python-pyqt6' 'acpi_call-dkms' 'polkit')
+depends=('python' 'python-pyqt6' 'qt6-svg' 'acpi_call-dkms' 'polkit')
 backup=('etc/thinkbook-fan-modes.conf')
 options=(!strip !debug)
 
@@ -34,6 +34,8 @@ package() {
 		"$pkgdir/usr/lib/thinkbook-fan/thinkbook-fan-helper"
 	install -Dm644 "$_srcdir/packaging/thinkbook-fan.desktop" \
 		"$pkgdir/usr/share/applications/thinkbook-fan.desktop"
+	install -Dm644 "$_srcdir/packaging/thinkbook-fan.svg" \
+		"$pkgdir/usr/share/icons/hicolor/scalable/apps/thinkbook-fan.svg"
 	install -Dm644 "$_srcdir/packaging/org.thinkbookfan.helper.policy" \
 		"$pkgdir/usr/share/polkit-1/actions/org.thinkbookfan.helper.policy"
 	install -Dm644 "$_srcdir/packaging/thinkbook-fan-mode.service" \
