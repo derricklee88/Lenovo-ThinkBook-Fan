@@ -77,9 +77,9 @@ sudo systemctl enable --now thinkbook-fan-mode.service
 ```
 ##Installing the GUI Version
 
-'''sh
+```sh
 cd ~/Projects/thinkbook-fan-modes && sudo pacman -U thinkbook-fan-modes-0.4.0-1-any.pkg.tar.zst
-'''
+```
 
 
 ## Use
