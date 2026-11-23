@@ -1,0 +1,13 @@
+[0;1;32m●[0m thinkbook-fan-mode.service - Apply the configured ThinkBook thermal mode
+     Loaded: loaded (]8;;file://derrick-20v3/usr/lib/systemd/system/thinkbook-fan-mode.service\/usr/lib/systemd/system/thinkbook-fan-mode.service]8;;\; [0;1;38:5:185mdisabled[0m; preset: [0;1;38:5:185mdisabled[0m)
+     Active: [0;1;32mactive (exited)[0m since Sun 2026-11-22 21:34:18 +08; 7s ago
+ Invocation: db02b933c0884ff4954ee2d1061f67e2
+       Docs: ]8;;file:///usr/share/doc/thinkbook-fan-modes/README.md\file:///usr/share/doc/thinkbook-fan-modes/README.md]8;;\
+    Process: 77616 ExecStart=/bin/sh -c "mode=\$(sed -n \"s/^MODE=//p\" /etc/thinkbook-fan-modes.conf | head -n1); exec /usr/bin/thinkbook-fan mode \"\${mode:-auto}\"" (code=exited, status=0/SUCCESS)
+   Main PID: 77616 (code=exited, status=0/SUCCESS)
+   Mem peak: 8.9M
+        CPU: 240ms
+
+Nov 22 21:34:17 derrick-20v3 systemd[1]: Starting Apply the configured ThinkBook thermal mode...
+Nov 22 21:34:18 derrick-20v3 sh[77616]: mode: auto  power: ac  fan1: 2100 rpm  fan2: 2500 rpm  cpu: 44.0 C
+Nov 22 21:34:18 derrick-20v3 systemd[1]: Finished Apply the configured ThinkBook thermal mode.
